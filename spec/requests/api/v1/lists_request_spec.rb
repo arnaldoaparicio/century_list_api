@@ -69,7 +69,7 @@ describe 'Lists API' do
 
         expect(List.count).to eq(1)
 
-        delete "/api/v1/books/#{list1.id}"
+        delete "/api/v1/lists/#{list1.id}"
 
         expect(response).to be_successful
         expect(List.count).to eq(0)

@@ -49,4 +49,18 @@ describe 'Lists API' do
         expect(response).to be_successful
         expect(created_list.name).to eq(list_params[:name])
     end
+
+    it 'can update an existing list' do
+        list1 = List.create!({name: 'Ingredients'})
+        list_params = { name: 'Food Product' }
+        headers = {"CONTENT_TYPE" => "application/json"}
+
+        patch "/api/v1/lists/#{list1.id}", headers: headers, params: JSON.generate({list: list_params})
+
+        list = List.find_by(id: list1.id)
+
+        expect(response).to be_successful
+        expect(list.name).to_not eq(previous_name)
+        expect(list.name).to eq('Food Product')
+    end
 end 

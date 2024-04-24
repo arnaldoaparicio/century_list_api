@@ -12,6 +12,10 @@ class Api::V1::ListsController < ApplicationController
         render json: List.create(list_params)
     end
 
+    def update
+        render json: List.update(params[:id], list_params)
+    end
+
     private
 
     def list_params

@@ -60,7 +60,7 @@ describe 'Lists API' do
         list = List.find_by(id: list1.id)
 
         expect(response).to be_successful
-        expect(list.name).to_not eq(previous_name)
+        expect(list.name).to_not eq('Ingredients')
         expect(list.name).to eq('Food Product')
     end
 end 

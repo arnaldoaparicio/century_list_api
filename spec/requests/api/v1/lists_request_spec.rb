@@ -37,4 +37,16 @@ describe 'Lists API' do
         expect(list).to have_key(:name)
         expect(list[:name]).to eq('Ingredients')
     end
+
+    it 'can create a new list' do
+        list_params = ({name: 'Ingredients'})
+
+        headers = {"CONTENT_TYPE" => "application/json"}
+
+        post "/api/v1/lists", headers: headers, params: JSON.generate(list: list_params)
+        created_list = List.last
+
+        expect(response).to be_successful
+        expect(created_list.name).to eq(list_params[:name])
+    end
 end 

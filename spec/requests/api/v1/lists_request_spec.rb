@@ -63,4 +63,16 @@ describe 'Lists API' do
         expect(list.name).to_not eq('Ingredients')
         expect(list.name).to eq('Food Product')
     end
+
+    it 'can destroy a list' do
+        list1 = List.create!({name: 'Ingredients'})
+
+        expect(List.count).to eq(1)
+
+        delete "/api/v1/books/#{list1.id}"
+
+        expect(response).to be_successful
+        expect(List.count).to eq(0)
+        expect{List.find(list1.id)}.to raise_error(ActiveRecord::RecordNotFound)
+    end
 end 

@@ -16,6 +16,10 @@ class Api::V1::ListsController < ApplicationController
         render json: List.update(params[:id], list_params)
     end
 
+    def destroy
+        render json: List.delete(params[:id])
+    end
+
     private
 
     def list_params

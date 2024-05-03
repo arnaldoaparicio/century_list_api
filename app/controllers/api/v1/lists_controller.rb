@@ -1,10 +1,11 @@
 class Api::V1::ListsController < ApplicationController
   def index
-    render json: List.all
+    render json: ListSerializer.new(List.all), status: 200
   end
 
   def show
-    render json: List.find(params[:id])
+    list = List.find_by_id(params[:id])
+    render json: ListSerializer.new(list.items), status: 200
   end
 
   def create

@@ -9,7 +9,12 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
-    render json: List.create(list_params)
+    list = List.new(list_params)
+    if list.save
+      render json: ListSerializer.new(list), status: 201
+    else
+      render status: 400
+    end
   end
 
   def update

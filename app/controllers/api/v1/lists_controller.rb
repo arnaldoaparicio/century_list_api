@@ -18,7 +18,12 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def update
-    render json: List.update(params[:id], list_params)
+    list = List.find(params[:id])
+    if list.update(list_params)
+      render json: ListSerializer.new(list)
+    else
+      render status: 422
+    end
   end
 
   def destroy

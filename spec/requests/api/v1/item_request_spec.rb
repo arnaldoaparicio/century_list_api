@@ -10,7 +10,7 @@ describe "Item API" do
                            item_type: 0,
                            list_id: "#{list1.id}" })
     
-    get "/api/v1/lists/#{list1.id}/#{item1}"
+    get "/api/v1/lists/#{list1.id}/#{item1.id}"
 
     expect(response).to be_successful
 

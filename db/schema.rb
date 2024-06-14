@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_14_210410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "list_id", null: false
-    t.integer "type"
+    t.integer "item_type"
     t.index ["list_id"], name: "index_items_on_list_id"
   end
 

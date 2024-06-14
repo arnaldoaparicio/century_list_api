@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :lists
+      resources :lists do
+      end
     end
   end
+get "/api/v1/lists/:list_id/:item_id", to: "items#show"
 end
+

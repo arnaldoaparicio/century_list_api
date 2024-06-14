@@ -7,7 +7,7 @@ describe "Item API" do
     item1 = Item.create!({ name: "Baker's Cheese",
                            minimum: 4,
                            number_in_stock: 4,
-                           type: 0,
+                           item_type: 0,
                            list_id: "#{list1.id}" })
     
     get "/api/v1/lists/#{list1.id}/#{item1}"
@@ -29,8 +29,8 @@ describe "Item API" do
     expect(item[:data][:attributes]).to have_key(:number_in_stock)
     expect(item[:data][:attributes][:number_in_stock]).to eq(4)
 
-    expect(item[:data][:attributes]).to have_key(:type)
-    expect(item[:data][:attributes][:type]).to eq(0)
+    expect(item[:data][:attributes]).to have_key(:item_type)
+    expect(item[:data][:attributes][:item_type]).to eq(0)
     
     
   end

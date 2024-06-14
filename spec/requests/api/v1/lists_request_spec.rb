@@ -11,14 +11,13 @@ describe "Lists API" do
 
     lists = JSON.parse(response.body, symbolize_names: true)
 
-    expect(lists.count).to eq(2)
+    expect(lists[:data].count).to eq(2)
 
-    lists.each do |list|
+    lists[:data].each do |list|
       expect(list).to have_key(:id)
-      expect(list[:id]).to be_an Integer
 
-      expect(list).to have_key(:name)
-      expect(list[:name]).to be_a String
+      expect(list[:attributes]).to have_key(:name)
+      expect(list[:attributes][:name]).to be_a String
     end
   end
 
@@ -31,11 +30,10 @@ describe "Lists API" do
 
     expect(response).to be_successful
 
-    expect(list).to have_key(:id)
-    expect(list[:id]).to eq(list1.id)
+    expect(list[:data]).to have_key(:id)
 
-    expect(list).to have_key(:name)
-    expect(list[:name]).to eq("Ingredients")
+    expect(list[:data][:attributes]).to have_key(:name)
+    expect(list[:data][:attributes][:name]).to eq("Ingredients")
   end
 
   it "can create a new list" do

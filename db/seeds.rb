@@ -8,4 +8,5 @@
 
 
 ingredient_list = List.create!(name: 'Ingredients')
-paper_list = List.create!(name: 'Paper')
+packaging_list = List.create!(name: 'Packaging Supplies')
+cleaning_list = List.create!(name: 'Cleaning Supplies')

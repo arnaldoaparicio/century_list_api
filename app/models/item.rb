@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-    enum :status, [ :ingredient, :packaging, :cleaning]
+    enum :item_type, [ :ingredient, :packaging, :cleaning]
 end

@@ -24,13 +24,13 @@ describe "Item API" do
     expect(item[:data][:attributes][:name]).to eq("Baker's Cheese")
 
     expect(item[:data][:attributes]).to have_key(:minimum)
-    expect(item[:data][:attributes][:minumum]).to eq(4)
+    expect(item[:data][:attributes][:minimum]).to eq(4)
 
     expect(item[:data][:attributes]).to have_key(:number_in_stock)
     expect(item[:data][:attributes][:number_in_stock]).to eq(4)
 
     expect(item[:data][:attributes]).to have_key(:item_type)
-    expect(item[:data][:attributes][:item_type]).to eq(0)
+    expect(item[:data][:attributes][:item_type]).to eq('ingredient')
     
     
   end

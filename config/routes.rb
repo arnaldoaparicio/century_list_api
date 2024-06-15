@@ -10,6 +10,6 @@ Rails.application.routes.draw do
       end
     end
   end
-get "/api/v1/lists/:list_id/:item_id", to: "items#show"
+get "/api/v1/lists/:list_id/:item_id", to: "api/v1/items#show"
 end
 

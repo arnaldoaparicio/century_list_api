@@ -10,3 +10,7 @@
 ingredient_list = List.create!(name: 'Ingredients')
 packaging_list = List.create!(name: 'Packaging Supplies')
 cleaning_list = List.create!(name: 'Cleaning Supplies')
+
+baker_cheese = Item.create!(name: "Baker's Cheese", minimum: 1, number_in_stock: 0, item_type: 0, list_id: ingredient_list.id)
+cake_board = Item.create!(name: '1/2 Sheet DW Cake Board', minimum: 2, number_in_stock: 1, item_type: 1, list_id: packaging_list.id)
+paper_towel = Item.create!(name: "Box of 36 Count Paper Towels", minimum: 4, number_in_stock: 0, item_type: 2, list_id: cleaning_list.id)

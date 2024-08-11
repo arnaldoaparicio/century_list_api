@@ -30,6 +30,11 @@ class Api::V1::ListsController < ApplicationController
     render json: List.delete(params[:id])
   end
 
+  def list_collection
+    list = List.find_by_id(params[:id])
+    render json: ItemSerializer.new(list.items), status: 200
+  end
+
   private
 
   def list_params
